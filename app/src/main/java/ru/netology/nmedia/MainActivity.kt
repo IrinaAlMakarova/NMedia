@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
-            likes = 0,
+            likes = 1_000,
             likedByMe = false,
-            share = 0,
+            share = 1_300,
             shareByMe = false,
-            visibility = 0,
+            visibility = 1_500_000,
             visibilityByMe = false
         )
 
@@ -34,9 +34,9 @@ class MainActivity : AppCompatActivity() {
             if (post.likedByMe) {
                 ivLike?.setImageResource(R.drawable.favorite_red_24dp)
             }
-            tvCoutLike!!.text = post.likes.toString()
-            tvCountShare!!.text = post.share.toString()
-            tvCountVisibility!!.text = post.visibility.toString()
+            tvCoutLike!!.text = counter(post.likes).toString()
+            tvCountShare!!.text = counter(post.share).toString()
+            tvCountVisibility!!.text = counter(post.visibility).toString()
 
 
             ivLike?.setOnClickListener {
@@ -74,7 +74,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun counter(count: Int): String {
-        val a = if (count in 999..1_099) {
+        val allCount = if(count in 999..1_999){
+            "${(count/100)/10.0}K"
+        }else if (count in 10_000..999_999) {
+            ""
+        } else if (count >= 1_000_000) {
+            "${(count/100_000)/10.0}M"
+        } else {
+            count
+        }
+        return allCount.toString()
+    /*
+        val allCount = if (count in 999..1_099) {
             "1K"
         } else if (count in 1100..1_199) {
             "1.1K"
@@ -96,11 +107,12 @@ class MainActivity : AppCompatActivity() {
             "1.9"
         } else if (count in 10_000..999_999) {
             ""
-        } else if (count > 1_000_000) {
+        } else if (count >= 1_000_000) {
             "1.3M"
         } else {
             count
         }
-        return a.toString()
+        return allCount.toString()
+     */
     }
 }
