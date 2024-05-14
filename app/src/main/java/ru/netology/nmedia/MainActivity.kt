@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
-            likes = 1_000,
+            likes = 909_700,
             likedByMe = false,
             share = 1_300,
             shareByMe = false,
@@ -74,45 +74,45 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun counter(count: Int): String {
-        val allCount = if(count in 999..1_999){
-            "${(count/100)/10.0}K"
-        }else if (count in 10_000..999_999) {
-            ""
-        } else if (count >= 1_000_000) {
-            "${(count/100_000)/10.0}M"
-        } else {
-            count
-        }
-        return allCount.toString()
-    /*
-        val allCount = if (count in 999..1_099) {
-            "1K"
-        } else if (count in 1100..1_199) {
-            "1.1K"
-        } else if (count in 1200..1_299) {
-            "1.2"
-        } else if (count in 1300..1_399) {
-            "1.3"
-        } else if (count in 1400..1_499) {
-            "1.4"
-        } else if (count in 1500..1_599) {
-            "1.5"
-        } else if (count in 1600..1_699) {
-            "1.6"
-        } else if (count in 1700..1_799) {
-            "1.7"
-        } else if (count in 1800..1_899) {
-            "1.8"
-        } else if (count in 1900..1_999) {
-            "1.9"
+        val allCount = if (count in 1_000..9_999) {
+            "${(count / 100) / 10.0}K"
         } else if (count in 10_000..999_999) {
-            ""
+            "${(count / 1_000)}K"
         } else if (count >= 1_000_000) {
-            "1.3M"
+            "${(count / 100_000) / 10.0}M"
         } else {
-            count
+            "$count"
         }
-        return allCount.toString()
-     */
+        return allCount
+        /*
+            val allCount = if (count in 999..1_099) {
+                "1K"
+            } else if (count in 1100..1_199) {
+                "1.1K"
+            } else if (count in 1200..1_299) {
+                "1.2"
+            } else if (count in 1300..1_399) {
+                "1.3"
+            } else if (count in 1400..1_499) {
+                "1.4"
+            } else if (count in 1500..1_599) {
+                "1.5"
+            } else if (count in 1600..1_699) {
+                "1.6"
+            } else if (count in 1700..1_799) {
+                "1.7"
+            } else if (count in 1800..1_899) {
+                "1.8"
+            } else if (count in 1900..1_999) {
+                "1.9"
+            } else if (count in 10_000..999_999) {
+                ""
+            } else if (count >= 1_000_000) {
+                "1.3M"
+            } else {
+                count
+            }
+            return allCount.toString()
+         */
     }
 }
