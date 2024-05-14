@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="ivAvatar,tvPublished,ibMenu"/>
+        app:constraint_referenced_ids="ivAvatar,tvPublished,ibMenu" />
 
     <TextView
         android:id="@+id/tvContent"
@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tvContent"/>
+        app:constraint_referenced_ids="tvContent" />
 
     <ImageView
         android:id="@+id/ivLike"
@@ -145,8 +145,6 @@
         android:layout_marginEnd="8dp"
         app:srcCompat="@drawable/visibility_24dp"
         android:importantForAccessibility="no" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
