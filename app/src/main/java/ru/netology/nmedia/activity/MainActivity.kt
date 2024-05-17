@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
                 tvAuthor!!.text = post.author
                 tvPublished!!.text = post.published
                 tvContent!!.text = post.content
-                tvCoutLike!!.text = viewModel.counter(post.likes)
-                tvCountShare!!.text = viewModel.counter(post.share)
-                tvCountVisibility!!.text = viewModel.counter(post.visibility)
+                tvCoutLike!!.text = counter(post.likes)
+                tvCountShare!!.text = counter(post.share)
+                tvCountVisibility!!.text = counter(post.visibility)
 
                 ivLike!!.setImageResource(
                     if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
@@ -41,6 +41,19 @@ class MainActivity : AppCompatActivity() {
         binding.ivVisibility?.setOnClickListener {
             viewModel.visibility()
         }
+    }
+
+    fun counter(count: Int): String {
+        val allCount = if (count in 1_000..9_999) {
+            "${(count / 100) / 10.0}K"
+        } else if (count in 10_000..999_999) {
+            "${(count / 1_000)}K"
+        } else if (count >= 1_000_000) {
+            "${(count / 100_000) / 10.0}M"
+        } else {
+            "$count"
+        }
+        return allCount
     }
 
 }

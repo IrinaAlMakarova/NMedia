@@ -8,5 +8,4 @@ interface PostRepository {
     fun like()
     fun share()
     fun visibility()
-    fun counter(count: Int): String
 }

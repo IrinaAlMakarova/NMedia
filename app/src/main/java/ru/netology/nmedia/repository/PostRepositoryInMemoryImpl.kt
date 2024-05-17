@@ -10,11 +10,11 @@ class PostRepositoryInMemoryImpl : PostRepository {
         author = "Нетология. Университет интернет-профессий будущего",
         content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
         published = "21 мая в 18:36",
-        likes = 909_800_300,
+        likes = 900_300_000,
         likedByMe = false,
-        share = 15_300,
+        share = 2,
         shareByMe = false,
-        visibility = 3,
+        visibility = 1_300,
         visibilityByMe = false
     )
     private val data = MutableLiveData(post)
@@ -28,8 +28,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
     }
 
     override fun share() {
-        post = post.copy(shareByMe = !post.shareByMe)
-        if (post.shareByMe) post.share++ else post.share--
+        post = post.copy(shareByMe = true)
+        if (post.shareByMe) post.share++
         data.value = post
     }
 
@@ -37,18 +37,5 @@ class PostRepositoryInMemoryImpl : PostRepository {
         post = post.copy(visibilityByMe = !post.visibilityByMe)
         if (post.visibilityByMe) post.visibility++ else post.visibility--
         data.value = post
-    }
-
-    override fun counter(count: Int): String {
-        val allCount = if (count in 1_000..9_999) {
-            "${(count / 100) / 10.0}K"
-        } else if (count in 10_000..999_999) {
-            "${(count / 1_000)}K"
-        } else if (count >= 1_000_000) {
-            "${(count / 100_000) / 10.0}M"
-        } else {
-            "$count"
-        }
-        return allCount
     }
 }
