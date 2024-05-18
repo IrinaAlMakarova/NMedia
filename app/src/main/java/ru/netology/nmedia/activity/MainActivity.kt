@@ -1,13 +1,51 @@
-package ru.netology.nmedia
+package ru.netology.nmedia.activity
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.viewmodel.PostViewModel
 
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val viewModel: PostViewModel by viewModels()
+        viewModel.data.observe(this) { post ->
+            with(binding) {
+                tvAuthor!!.text = post.author
+                tvPublished!!.text = post.published
+                tvContent!!.text = post.content
+                tvCoutLike!!.text = counter(post.likes)
+                tvCountShare!!.text = counter(post.share)
+                tvCountVisibility!!.text = counter(post.visibility)
+
+                ivLike!!.setImageResource(
+                    if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
+                )
+            }
+        }
+        binding.ivLike?.setOnClickListener {
+            viewModel.like()
+        }
+
+        binding.ivShare?.setOnClickListener {
+            viewModel.share()
+        }
+
+        binding.ivVisibility?.setOnClickListener {
+            viewModel.visibility()
+        }
+    }
+}
+
+
+/*
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +57,11 @@ class MainActivity : AppCompatActivity() {
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
-            likes = 909_700,
+            //likes = 909_700,
             likedByMe = false,
-            share = 1_300,
+            //share = 1_300,
             shareByMe = false,
-            visibility = 1_500_000,
+            //visibility = 1_500_000,
             visibilityByMe = false
         )
 
@@ -116,3 +154,6 @@ class MainActivity : AppCompatActivity() {
          */
     }
 }
+
+ */
+
