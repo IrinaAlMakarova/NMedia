@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
 
@@ -16,30 +17,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) { post ->
-            with(binding) {
-                tvAuthor!!.text = post.author
-                tvPublished!!.text = post.published
-                tvContent!!.text = post.content
-                tvCoutLike!!.text = counter(post.likes)
-                tvCountShare!!.text = counter(post.share)
-                tvCountVisibility!!.text = counter(post.visibility)
+        viewModel.data.observe(this) { posts ->
+            posts.map { post ->
+                CardPostBinding.inflate(layoutInflater, binding.container, false).apply {
+                    tvAuthor.text = post.author
+                    tvPublished.text = post.published
+                    tvContent.text = post.content
+                    tvCoutLike.text = counter(post.likes)
+                    tvCountShare.text = counter(post.share)
+                    tvCountVisibility.text = counter(post.visibility)
 
-                ivLike!!.setImageResource(
-                    if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
-                )
+                    ivLike.setImageResource(
+                        if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
+                    )
+
+                    ivLike.setOnClickListener {
+                        viewModel.likeById(post.id)
+                    }
+
+                    ivShare.setOnClickListener {
+                        viewModel.shareById(post.id)
+                    }
+
+                    ivVisibility.setOnClickListener {
+                        viewModel.visibilityById(post.id)
+                    }
+
+                }.root
+            }.forEach {
+                binding.container.addView(it)
             }
-        }
-        binding.ivLike?.setOnClickListener {
-            viewModel.like()
-        }
-
-        binding.ivShare?.setOnClickListener {
-            viewModel.share()
-        }
-
-        binding.ivVisibility?.setOnClickListener {
-            viewModel.visibility()
         }
     }
 }
