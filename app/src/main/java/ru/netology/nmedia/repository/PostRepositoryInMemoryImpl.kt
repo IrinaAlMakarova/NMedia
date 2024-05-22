@@ -11,11 +11,11 @@ class PostRepositoryInMemoryImpl : PostRepository {
             author = "Нетология. Университет интернет-профессий будущего",
             content = "Знаний хватит на всех: на следующей неделе разбираемся с разработкой мобильных приложений, учимся рассказывать истории и составлять PR-стратегию прямо на бесплатных занятиях \\uD83D\\uDC47",
             published = "18 сентября в 10:12",
-            likes = 930_300_000,
+            likes = 9,
             likedByMe = false,
             share = 2,
             shareByMe = false,
-            visibility = 1_300,
+            visibility = 1,
             visibilityByMe = false
         ),
         Post(
