@@ -4,14 +4,16 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.counter
 import ru.netology.nmedia.adapter.OnLikeListener
+import ru.netology.nmedia.adapter.OnShareListener
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
-class PostViewHolder (
+class PostViewHolder(
     private val binding: CardPostBinding,
-    private val onLikeListener: OnLikeListener
-): RecyclerView.ViewHolder(binding.root){
-    fun bind(post: Post){
+    private val onLikeListener: OnLikeListener,
+    private val onShareListener: OnShareListener
+) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(post: Post) {
         binding.apply {
             tvAuthor.text = post.author
             tvPublished.text = post.published
@@ -22,13 +24,15 @@ class PostViewHolder (
             tvCountVisibility.text = counter(post.visibility)
 
             ivLike.setImageResource(
-                if(post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
+                if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
             )
             ivLike.setOnClickListener {
                 onLikeListener(post)
             }
 
-
+            ivShare.setOnClickListener {
+                onShareListener(post)
+            }
         }
     }
 }
