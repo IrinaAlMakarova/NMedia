@@ -35,22 +35,22 @@ class PostViewHolder(
             ivShare.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
-/*
-            ibMenu.setOnClickListener{
-                PopupMenu(it.context,it).apply {
-                    inflate(R.menu.options_post)
-                    setOnMenuItemClickListener {item->
-                        when(item.itemId){
-                            R.id.remove ->{
-                                onRemoveListener(post)
-                                true
-                            }
-                            else -> false
+            /*
+                        ibMenu.setOnClickListener{
+                            PopupMenu(it.context,it).apply {
+                                inflate(R.menu.options_post)
+                                setOnMenuItemClickListener {item->
+                                    when(item.itemId){
+                                        R.id.remove ->{
+                                            onRemoveListener(post)
+                                            true
+                                        }
+                                        else -> false
+                                    }
+                                }
+                            }.show()
                         }
-                    }
-                }.show()
-            }
-*/
+            */
 
             ibMenu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
@@ -61,6 +61,7 @@ class PostViewHolder(
                                 onInteractionListener.onRemove(post)
                                 true
                             }
+
                             R.id.edit -> {
                                 onInteractionListener.onEdit(post)
                                 true

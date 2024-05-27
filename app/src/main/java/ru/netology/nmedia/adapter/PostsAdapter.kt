@@ -10,6 +10,7 @@ import ru.netology.nmedia.viewholder.PostViewHolder
 typealias OnLikeListener = (post: Post) -> Unit
 typealias OnShareListener = (post: Post) -> Unit
 typealias OnRemoveListener = (post: Post) -> Unit //Удаление
+
 class PostsAdapter(
     private val onInteractionListener: OnInteractionListener
     //private val onLikeListener: OnInteractionListener
