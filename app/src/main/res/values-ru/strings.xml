@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">НМедиа</string>
     <string name="nmedia">НМедиа!</string>
+    <string name="post_text">Текст поста</string>
+    <string name="description_post_like">Нравится</string>
 </resources>
