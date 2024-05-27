@@ -1,17 +1,19 @@
 package ru.netology.nmedia.viewholder
 
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.counter
+import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.OnLikeListener
+import ru.netology.nmedia.adapter.OnRemoveListener
 import ru.netology.nmedia.adapter.OnShareListener
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
 class PostViewHolder(
     private val binding: CardPostBinding,
-    private val onLikeListener: OnLikeListener,
-    private val onShareListener: OnShareListener
+    private val onInteractionListener: OnInteractionListener
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         binding.apply {
@@ -27,11 +29,47 @@ class PostViewHolder(
                 if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
             )
             ivLike.setOnClickListener {
-                onLikeListener(post)
+                onInteractionListener.onLike(post)
             }
 
             ivShare.setOnClickListener {
-                onShareListener(post)
+                onInteractionListener.onShare(post)
+            }
+/*
+            ibMenu.setOnClickListener{
+                PopupMenu(it.context,it).apply {
+                    inflate(R.menu.options_post)
+                    setOnMenuItemClickListener {item->
+                        when(item.itemId){
+                            R.id.remove ->{
+                                onRemoveListener(post)
+                                true
+                            }
+                            else -> false
+                        }
+                    }
+                }.show()
+            }
+*/
+
+            ibMenu.setOnClickListener {
+                PopupMenu(it.context, it).apply {
+                    inflate(R.menu.options_post)
+                    setOnMenuItemClickListener { item ->
+                        when (item.itemId) {
+                            R.id.remove -> {
+                                onInteractionListener.onRemove(post)
+                                true
+                            }
+                            R.id.edit -> {
+                                onInteractionListener.onEdit(post)
+                                true
+                            }
+
+                            else -> false
+                        }
+                    }
+                }.show()
             }
         }
     }

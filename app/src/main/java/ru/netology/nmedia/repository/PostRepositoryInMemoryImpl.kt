@@ -1,5 +1,6 @@
 package ru.netology.nmedia.repository
 
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
@@ -59,6 +60,34 @@ class PostRepositoryInMemoryImpl : PostRepository {
             if (it.id != id) it else it.copy(
                 visibility = it.visibility + 1
             )
+        }
+        data.value = posts
+    }
+
+    //Удаление
+    override fun removeById(id: Long) {
+        posts = posts.filter { it.id != id }
+        data.value = posts
+    }
+
+    private var nextId = 1L
+    override fun save(post: Post) {
+        if (post.id == 0L) {
+            // TODO: remove hardcoded author & published
+            posts = listOf(
+                post.copy(
+                    id = nextId++,
+                    author = "Me",
+                    likedByMe = false,
+                    published = "now"
+                )
+            ) + posts
+            data.value = posts
+            return
+        }
+
+        posts = posts.map {
+            if (it.id != post.id) it else it.copy(content = post.content)
         }
         data.value = posts
     }
