@@ -70,7 +70,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    private var nextId = 1L
+    private var nextId = (posts.size + 1).toLong()
     override fun save(post: Post) {
         if (post.id == 0L) {
             // TODO: remove hardcoded author & published

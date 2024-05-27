@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/post_text"
         android:inputType="textMultiLine"
-        android:background="@android:color/transparent"
+        android:background="#FFF5EE"
         android:padding="@dimen/common_spacing"
         android:importantForAutofill="no"
         app:layout_constraintTop_toTopOf="@id/toolsTop"
