@@ -3,4 +3,6 @@
     <string name="nmedia">NMedia!</string>
     <string name="post_text">Post text</string>
     <string name="description_post_like">Like</string>
+    <string name="edit_text">Edit Message</string>
+    <string name="description_post_cansel">Cansel</string>
 </resources>

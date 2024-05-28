@@ -75,12 +75,15 @@ class MainActivity : AppCompatActivity() {
                 viewModel.changeContent(text.toString())
                 viewModel.save()
 
+
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
         }
     }
+
+
 }
 
 
