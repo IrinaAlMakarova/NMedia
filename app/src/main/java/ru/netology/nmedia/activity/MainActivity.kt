@@ -59,7 +59,10 @@ class MainActivity : AppCompatActivity() {
                 requestFocus()
                 setText(post.content)
             }
+
+
         }
+
 
         binding.save.setOnClickListener {
             with(binding.content) {
@@ -80,6 +83,18 @@ class MainActivity : AppCompatActivity() {
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
+        }
+
+        binding.cancel.setOnClickListener {
+            with(binding.contentNotEdit) {
+
+                viewModel.cansel()
+
+                setText("")
+                clearFocus()
+                AndroidUtils.hideKeyboard(this)
+            }
+
         }
     }
 

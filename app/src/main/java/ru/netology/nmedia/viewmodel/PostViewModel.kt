@@ -48,4 +48,11 @@ class PostViewModel : ViewModel() {
         }
         edited.value = edited.value?.copy(content = text)
     }
+
+    fun cansel() { //Отмена редактирования текста поста
+        edited.value?.let {
+            edited.value = empty
+            repository.cansel(it)
+        }
+    }
 }

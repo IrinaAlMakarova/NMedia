@@ -94,6 +94,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
 
     //Отмена редактирования текста поста
     override fun cansel(post: Post) {
-        TODO("Not yet implemented")
+        data.value = posts
+        return
     }
 }

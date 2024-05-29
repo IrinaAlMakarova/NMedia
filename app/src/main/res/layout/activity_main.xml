@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/save"/>
+        app:layout_constraintTop_toTopOf="@id/save" />
 
     <ImageButton
         android:id="@+id/save"
@@ -46,7 +46,7 @@
         app:layout_constraintStart_toEndOf="@id/content"
         app:srcCompat="@drawable/check_circle_24dp" />
 
-   <TextView
+    <TextView
         android:id="@+id/contentNotEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toTopOf="@id/content"
         app:layout_constraintEnd_toStartOf="@id/cancel"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintBottom_toBottomOf="@id/contentNotEdit"/>
+        app:layout_constraintBottom_toBottomOf="@id/contentNotEdit" />
 
     <ImageButton
         android:id="@+id/cancel"
@@ -71,6 +71,5 @@
         app:layout_constraintTop_toTopOf="@id/contentNotEdit"
         app:layout_constraintBottom_toBottomOf="@id/contentNotEdit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/contentNotEdit"
-         />
+        app:layout_constraintStart_toEndOf="@id/contentNotEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
