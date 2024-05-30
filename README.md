@@ -38,7 +38,8 @@
 
 ## Задача 7
 Реализуйте отмену редактирования аналогично тому, как это сделано в Telegram:
-![](https://github.com/IrinaAlMakarova/NMedia/blob/main/pic/cancel.png?raw=true)
+![](https://github.com/IrinaAlMakarova/NMedia/blob/CRUD_Cancel/pic/cancel.png?raw=true)
+
 Достаточно с помощью ConstraintLayout сформировать соответствующую структуру над полем ввода поста.
 
 Единовременно управлять отображением/скрытием сразу нескольких View можно с помощью объединения их в виртуальную группу.
@@ -47,6 +48,7 @@
 
 group.visibility = View.GONE // перестаёт занимать место на экране
 group.visibility = View.INVISIBLE // невидима, но занимает место на экране
+
 Отобразить:
 
 group.visibility = View.VISIBLE
