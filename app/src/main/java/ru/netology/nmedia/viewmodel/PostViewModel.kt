@@ -52,7 +52,7 @@ class PostViewModel : ViewModel() {
     fun cansel() { //Отмена редактирования текста поста
         edited.value?.let {
             edited.value = empty
-            repository.cansel(it)
+            //repository.cansel(it)
         }
     }
 }

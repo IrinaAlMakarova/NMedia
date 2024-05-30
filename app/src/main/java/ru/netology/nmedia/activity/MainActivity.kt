@@ -1,6 +1,7 @@
 package ru.netology.nmedia.activity
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -51,6 +52,8 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(posts)
         }
 
+        binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
+
         viewModel.edited.observe(this) { post ->
             if (post.id == 0L) {
                 return@observe
@@ -60,9 +63,13 @@ class MainActivity : AppCompatActivity() {
                 setText(post.content)
             }
 
+            with(binding.contentNotEdit) {
+                clearFocus()
+                setText(post.content)
+            }
 
+            binding.groupCansel.visibility = View.VISIBLE
         }
-
 
         binding.save.setOnClickListener {
             with(binding.content) {
@@ -78,11 +85,11 @@ class MainActivity : AppCompatActivity() {
                 viewModel.changeContent(text.toString())
                 viewModel.save()
 
-
                 setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
+            binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
 
         binding.cancel.setOnClickListener {
@@ -91,14 +98,13 @@ class MainActivity : AppCompatActivity() {
                 viewModel.cansel()
 
                 setText("")
+                binding.content.setText("")
                 clearFocus()
                 AndroidUtils.hideKeyboard(this)
             }
-
+            binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
     }
-
-
 }
 
 

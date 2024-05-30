@@ -72,4 +72,11 @@
         app:layout_constraintBottom_toBottomOf="@id/contentNotEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/contentNotEdit" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupCansel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="cancel,contentNotEdit" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

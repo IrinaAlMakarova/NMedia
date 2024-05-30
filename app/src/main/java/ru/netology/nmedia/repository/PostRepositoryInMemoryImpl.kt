@@ -93,8 +93,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
     }
 
     //Отмена редактирования текста поста
-    override fun cansel(post: Post) {
-        data.value = posts
-        return
-    }
+    //override fun cansel(post: Post) {
+    //    data.value = posts
+    //    return
+    //}
 }

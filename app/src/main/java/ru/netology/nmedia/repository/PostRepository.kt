@@ -11,5 +11,5 @@ interface PostRepository {
     fun visibilityById(id: Long)
     fun removeById(id: Long) //Удаление поста
     fun save(post: Post)
-    fun cansel(post: Post) //Отмена редактирования текста поста
+    //fun cansel(post: Post) //Отмена редактирования текста поста
 }
