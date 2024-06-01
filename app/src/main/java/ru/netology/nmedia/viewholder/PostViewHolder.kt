@@ -21,17 +21,22 @@ class PostViewHolder(
             tvPublished.text = post.published
             tvContent.text = post.content
 
-            tvCoutLike.text = counter(post.likes)
-            tvCountShare.text = counter(post.share)
+            //tvCoutLike.text = counter(post.likes)
+            ivLike.text = counter(post.likes)
+            //tvCountShare.text = counter(post.share)
+            ivShare.text = counter(post.share)
             tvCountVisibility.text = counter(post.visibility)
 
-            ivLike.setImageResource(
-                if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
-            )
+            //ivLike.setImageResource(
+            //    if (post.likedByMe) R.drawable.favorite_red_24dp else R.drawable.favorite_24dp
+            //)
+
+            ivLike.isChecked = post.likedByMe
             ivLike.setOnClickListener {
                 onInteractionListener.onLike(post)
             }
 
+            ivShare.text = counter(post.share)
             ivShare.setOnClickListener {
                 onInteractionListener.onShare(post)
             }
