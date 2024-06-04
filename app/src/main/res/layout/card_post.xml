@@ -159,6 +159,7 @@
         tools:checked="@sample/posts.json/data/likeById"
         tools:text="@sample/posts.json/data/likes"
         android:text="@string/likes"
+        android:textColor="@color/black"
         style="@style/Widget.AppTheme.LikeButton" />
 
     <com.google.android.material.button.MaterialButton
@@ -171,6 +172,7 @@
         tools:checked="@sample/posts.json/data/share"
         tools:text="@sample/posts.json/data/shares"
         android:text="@string/shares"
+        android:textColor="@color/black"
         style="@style/Widget.AppTheme.LikeButton1" />
 
     <com.google.android.material.button.MaterialButton

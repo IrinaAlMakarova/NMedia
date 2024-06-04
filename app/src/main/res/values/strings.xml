@@ -7,4 +7,6 @@
     <string name="description_post_cansel">Cansel</string>
     <string name="likes">1</string>
     <string name="shares">2</string>
+    <string name="chooser_share_post" />
+    <string name="error_empty_content" />
 </resources>
