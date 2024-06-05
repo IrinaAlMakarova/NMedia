@@ -58,6 +58,9 @@ class MainActivity : AppCompatActivity() {
                 viewModel.save()
             }
 
+            binding.fab.setOnClickListener {
+                newPostLauncher.launch()
+            }
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)

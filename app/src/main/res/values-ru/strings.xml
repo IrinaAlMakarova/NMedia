@@ -8,4 +8,5 @@
     <string name="description_post_cansel">Отмена</string>
     <string name="likes">1</string>
     <string name="shares">2</string>
+    <string name="add_post">Добавить пост</string>
 </resources>

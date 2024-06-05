@@ -9,4 +9,5 @@
     <string name="shares">2</string>
     <string name="chooser_share_post" />
     <string name="error_empty_content" />
+    <string name="add_post">Add post</string>
 </resources>
