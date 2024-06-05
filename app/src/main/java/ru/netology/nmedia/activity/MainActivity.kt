@@ -52,15 +52,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(shareIntent)
             }
 
-            val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
-                result ?: return@registerForActivityResult
-                viewModel.changeContent(result)
-                viewModel.save()
-            }
-
-            binding.fab.setOnClickListener {
-                newPostLauncher.launch()
-            }
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
@@ -70,6 +61,16 @@ class MainActivity : AppCompatActivity() {
                 viewModel.removeById(post.id)
             }
         })
+
+        val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
+            result ?: return@registerForActivityResult
+            viewModel.changeContent(result)
+            viewModel.save()
+        }
+
+        binding.fab.setOnClickListener {
+            newPostLauncher.launch()
+        }
 
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
