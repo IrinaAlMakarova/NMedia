@@ -56,21 +56,36 @@ class MainActivity : AppCompatActivity() {
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
             }
+            //override fun onEdit(post: Post) {
+            //    val intentEdit = Intent(this@MainActivity, EditPostActivity::class.java)
+            //    startActivity(intentEdit)
+            //}
 
             override fun onRemove(post: Post) {
                 viewModel.removeById(post.id)
             }
         })
 
+        // New Post
         val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
             result ?: return@registerForActivityResult
             viewModel.changeContent(result)
             viewModel.save()
         }
-
         binding.fab.setOnClickListener {
             newPostLauncher.launch()
         }
+        // New Post
+
+        // Edit
+        val editPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
+            result ?: return@registerForActivityResult
+            viewModel.changeContent(result)
+            viewModel.save()
+            viewModel.edited
+        }
+        //editPostLauncher.launch()
+        // Edit
 
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
