@@ -11,11 +11,15 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.ActivityMainBinding
+import ru.netology.nmedia.databinding.EditPostActivityBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.util.AndroidUtils
 import ru.netology.nmedia.viewmodel.PostViewModel
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 
 class MainActivity : AppCompatActivity() {
+    @OptIn(ExperimentalContracts::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -52,10 +56,20 @@ class MainActivity : AppCompatActivity() {
                 startActivity(shareIntent)
             }
 
+            // Edit (регистрация контракта)
+            val editPostLauncher =
+                registerForActivityResult(EditPostResultContract()) { result ->
+                    result ?: return@registerForActivityResult
+                    viewModel.changeContent(result)
+                    viewModel.save()
+                }
+            // Edit
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
+                editPostLauncher.launch(post.content)  //
             }
+
             //override fun onEdit(post: Post) {
             //    val intentEdit = Intent(this@MainActivity, EditPostActivity::class.java)
             //    startActivity(intentEdit)
@@ -76,16 +90,6 @@ class MainActivity : AppCompatActivity() {
             newPostLauncher.launch()
         }
         // New Post
-
-        // Edit
-        val editPostLauncher = registerForActivityResult(EditPostResultContract()) { result ->
-            result ?: return@registerForActivityResult
-            viewModel.changeContent(result)
-            viewModel.save()
-            viewModel.edited
-        }
-        //editPostLauncher.launch()
-        // Edit
 
         binding.list.adapter = adapter
         viewModel.data.observe(this) { posts ->
