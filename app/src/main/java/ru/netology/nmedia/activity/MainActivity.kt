@@ -1,6 +1,7 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -56,18 +57,25 @@ class MainActivity : AppCompatActivity() {
                 startActivity(shareIntent)
             }
 
-            // Edit (регистрация контракта)
+            //-- Video
+            override fun onVideo(post: Post) {
+                val intentVideo = Intent(Intent.ACTION_VIEW, Uri.parse(post.link))
+                startActivity(intentVideo)
+            }
+            //-- Video
+
+            //-- Edit (регистрация контракта)
             val editPostLauncher =
                 registerForActivityResult(EditPostResultContract()) { result ->
                     result ?: return@registerForActivityResult
                     viewModel.changeContent(result)
                     viewModel.save()
                 }
-            // Edit
+            //-- Edit
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
-                editPostLauncher.launch(post.content)  //
+                editPostLauncher.launch(post.content)  //-- вызов функции launch к контракту
             }
 
             //override fun onEdit(post: Post) {

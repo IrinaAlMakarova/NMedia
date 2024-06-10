@@ -16,8 +16,10 @@ class EditPostActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.edit.requestFocus()
 
+        //-- Получение текста из интента
         val contents = intent.getStringExtra(Intent.EXTRA_TEXT)
         binding.edit.setText(contents)
+        //-- Получение текста из интента
 
         binding.ok.setOnClickListener {
             val intent = Intent()

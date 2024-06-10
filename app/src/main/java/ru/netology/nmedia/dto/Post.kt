@@ -10,5 +10,6 @@ data class Post(
     val share: Int,
     val shareByMe: Boolean,
     val visibility: Int,
-    val visibilityByMe: Boolean
+    val visibilityByMe: Boolean,
+    val link: String? = null
 )

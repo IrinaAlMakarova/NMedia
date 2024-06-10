@@ -10,4 +10,6 @@
     <string name="chooser_share_post" />
     <string name="error_empty_content" />
     <string name="add_post">Add post</string>
+    <string name="video_link">Link to the video</string>
+
 </resources>

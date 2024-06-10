@@ -1,5 +1,6 @@
 package ru.netology.nmedia.viewholder
 
+import android.view.View
 import android.widget.PopupMenu
 import androidx.activity.result.launch
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,7 @@ class PostViewHolder(
     private val onInteractionListener: OnInteractionListener
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
-        binding.apply {
+        val apply = binding.apply {
             tvAuthor.text = post.author
             tvPublished.text = post.published
             tvContent.text = post.content
@@ -79,7 +80,20 @@ class PostViewHolder(
                 }.show()
             }
 
+            ivVideo.setOnClickListener {
+                onInteractionListener.onVideo(post)
+            }
+            ivPlay.setOnClickListener {
+                onInteractionListener.onVideo(post)
+            }
 
+            groupVideo.visibility = View.GONE // перестаёт занимать место на экране
+            link.setOnFocusChangeListener { _, focused ->
+                if (focused) {
+                    groupVideo.visibility = View.VISIBLE // Отобразить на экране
+                }
+            }
+            
         }
     }
 }
