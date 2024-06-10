@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity() {
             binding.groupCansel.visibility = View.VISIBLE
         }
 
+        // Добавление поста с помощью EditText (EditText и кнопка save)
         binding.save.setOnClickListener {
             with(binding.content) {
                 if (text.isNullOrBlank()) {
@@ -143,7 +144,9 @@ class MainActivity : AppCompatActivity() {
             }
             binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
+        // Добавление поста с помощью EditText (EditText и кнопка save)
 
+        // Редактирование поста с помощью EditText (EditText и кнопка cansel)
         binding.cancel.setOnClickListener {
             with(binding.contentNotEdit) {
 
@@ -156,6 +159,8 @@ class MainActivity : AppCompatActivity() {
             }
             binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
+        // Редактирование поста с помощью EditText (EditText и кнопка cansel)
+
     }
 }
 

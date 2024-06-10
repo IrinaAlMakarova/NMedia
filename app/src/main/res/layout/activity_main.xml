@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
 
+    <!-- Создание поста с помощью EditText (EditText и кнопка cansel) !-->
     <EditText
         android:id="@+id/content"
         android:layout_width="0dp"
@@ -45,7 +46,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/content"
         app:srcCompat="@drawable/check_circle_24dp" />
-
+    <!-- Создание поста с помощью EditText (EditText и кнопка cansel) !-->
+    
+    <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
     <TextView
         android:id="@+id/contentNotEdit"
         android:layout_width="0dp"
@@ -72,6 +75,7 @@
         app:layout_constraintBottom_toBottomOf="@id/contentNotEdit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/contentNotEdit" />
+    <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupCansel"
