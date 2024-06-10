@@ -47,7 +47,7 @@
         app:layout_constraintStart_toEndOf="@id/content"
         app:srcCompat="@drawable/check_circle_24dp" />
     <!-- Создание поста с помощью EditText (EditText и кнопка cansel) !-->
-    
+
     <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
     <TextView
         android:id="@+id/contentNotEdit"
