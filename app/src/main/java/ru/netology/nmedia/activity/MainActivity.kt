@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
             adapter.submitList(posts)
         }
 
-        binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
+        //binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
 
         viewModel.edited.observe(this) { post ->
             if (post.id == 0L) {
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             */
             // Добавление поста с помощью EditText (EditText и кнопка save)
 
-            binding.groupCansel.visibility = View.VISIBLE
+            //binding.groupCansel.visibility = View.VISIBLE
         }
 
         // Добавление поста с помощью EditText (EditText и кнопка save)
