@@ -89,6 +89,8 @@ class PostViewHolder(
 
             if (post.link == null) {
                 groupVideo.visibility = View.GONE // перестаёт занимать место на экране
+            }else{
+                groupVideo.visibility = View.VISIBLE
             }
 
         }
