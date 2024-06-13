@@ -110,6 +110,8 @@ class MainActivity : AppCompatActivity() {
             if (post.id == 0L) {
                 return@observe
             }
+            // Добавление поста с помощью EditText (EditText и кнопка save)
+            /*
             with(binding.content) {
                 requestFocus()
                 setText(post.content)
@@ -119,11 +121,14 @@ class MainActivity : AppCompatActivity() {
                 clearFocus()
                 setText(post.content)
             }
+            */
+            // Добавление поста с помощью EditText (EditText и кнопка save)
 
             binding.groupCansel.visibility = View.VISIBLE
         }
 
         // Добавление поста с помощью EditText (EditText и кнопка save)
+        /*
         binding.save.setOnClickListener {
             with(binding.content) {
                 if (text.isNullOrBlank()) {
@@ -144,9 +149,11 @@ class MainActivity : AppCompatActivity() {
             }
             binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
+        */
         // Добавление поста с помощью EditText (EditText и кнопка save)
 
         // Редактирование поста с помощью EditText (EditText и кнопка cansel)
+        /*
         binding.cancel.setOnClickListener {
             with(binding.contentNotEdit) {
 
@@ -159,7 +166,9 @@ class MainActivity : AppCompatActivity() {
             }
             binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
         }
+        */
         // Редактирование поста с помощью EditText (EditText и кнопка cansel)
+
 
     }
 }

@@ -87,13 +87,10 @@ class PostViewHolder(
                 onInteractionListener.onVideo(post)
             }
 
-            groupVideo.visibility = View.GONE // перестаёт занимать место на экране
-            link.setOnFocusChangeListener { _, focused ->
-                if (focused) {
-                    groupVideo.visibility = View.VISIBLE // Отобразить на экране
-                }
+            if (post.link == null) {
+                groupVideo.visibility = View.GONE // перестаёт занимать место на экране
             }
-            
+
         }
     }
 }

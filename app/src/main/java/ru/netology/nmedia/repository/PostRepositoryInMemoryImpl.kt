@@ -17,7 +17,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             share = 2,
             shareByMe = false,
             visibility = 1,
-            visibilityByMe = false
+            visibilityByMe = false,
+            link = "https://www.youtube.com/watch?v=WhWc3b3KhnY"
         ),
         Post(
             id = 1,
@@ -29,7 +30,8 @@ class PostRepositoryInMemoryImpl : PostRepository {
             share = 2,
             shareByMe = false,
             visibility = 1_300,
-            visibilityByMe = false
+            visibilityByMe = false,
+            link = null
         )
     )
     private val data = MutableLiveData(posts)

@@ -185,26 +185,13 @@
         app:icon="@drawable/ic_more_vert_24dp"
         style="@style/Widget.AppTheme.LikeButton1" />
 
-    <EditText
-        android:id="@+id/link"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/video_link"
-        android:inputType="textMultiLine"
-        android:background="#FFF5EE"
-        android:padding="@dimen/common_spacing"
-        android:importantForAutofill="no"
-        app:layout_constraintTop_toBottomOf="@id/tvContent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
     <ImageView
         android:id="@+id/ivVideo"
         android:layout_width="240dp"
         android:layout_height="131dp"
         app:layout_constraintBottom_toTopOf="@id/barrierSecond"
-        app:layout_constraintStart_toStartOf="@+id/link"
-        app:layout_constraintTop_toBottomOf="@id/link"
+        app:layout_constraintStart_toStartOf="@+id/tvContent"
+        app:layout_constraintTop_toBottomOf="@id/tvContent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/loading" />
 
