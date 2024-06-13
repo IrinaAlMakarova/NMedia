@@ -81,11 +81,13 @@
     !-->
     <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
 
+    <!--
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupCansel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="cancel,contentNotEdit" />
+    !-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
