@@ -3,30 +3,31 @@ package ru.netology.nmedia.activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
-import androidx.activity.result.launch
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
-import ru.netology.nmedia.databinding.ActivityMainBinding
-import ru.netology.nmedia.databinding.EditPostActivityBinding
+import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.util.AndroidUtils
 import ru.netology.nmedia.viewmodel.PostViewModel
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.contract
 
-class MainActivity : AppCompatActivity() {
-    @OptIn(ExperimentalContracts::class)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+class FeedFragment : Fragment() {
 
-        val viewModel: PostViewModel by viewModels()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val binding = FragmentFeedBinding.inflate(inflater, container, false)
+
+        val viewModel: PostViewModel by viewModels(
+            ownerProducer = ::requireParentFragment
+        )
 
         /*
         val adapter = PostsAdapter({
@@ -89,24 +90,19 @@ class MainActivity : AppCompatActivity() {
         })
 
         // New Post
-        val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
-            result ?: return@registerForActivityResult
-            viewModel.changeContent(result)
-            viewModel.save()
-        }
         binding.fab.setOnClickListener {
-            newPostLauncher.launch()
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
         }
         // New Post
 
         binding.list.adapter = adapter
-        viewModel.data.observe(this) { posts ->
+        viewModel.data.observe(viewLifecycleOwner) { posts ->
             adapter.submitList(posts)
         }
 
         //binding.groupCansel.visibility = View.GONE // перестаёт занимать место на экране
 
-        viewModel.edited.observe(this) { post ->
+        viewModel.edited.observe(viewLifecycleOwner) { post ->
             if (post.id == 0L) {
                 return@observe
             }
@@ -169,8 +165,9 @@ class MainActivity : AppCompatActivity() {
         */
         // Редактирование поста с помощью EditText (EditText и кнопка cansel)
 
-
+        return binding.root
     }
+
 }
 
 
