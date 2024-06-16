@@ -3,10 +3,8 @@ package ru.netology.nmedia.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.netology.nmedia.databinding.EditPostActivityBinding
-import ru.netology.nmedia.viewmodel.PostViewModel
 
 
 class EditPostActivity : AppCompatActivity() {

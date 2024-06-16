@@ -2,14 +2,10 @@ package ru.netology.nmedia.viewholder
 
 import android.view.View
 import android.widget.PopupMenu
-import androidx.activity.result.launch
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.counter
 import ru.netology.nmedia.adapter.OnInteractionListener
-import ru.netology.nmedia.adapter.OnLikeListener
-import ru.netology.nmedia.adapter.OnRemoveListener
-import ru.netology.nmedia.adapter.OnShareListener
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 
@@ -89,7 +85,7 @@ class PostViewHolder(
 
             if (post.link == null) {
                 groupVideo.visibility = View.GONE // перестаёт занимать место на экране
-            }else{
+            } else {
                 groupVideo.visibility = View.VISIBLE
             }
 

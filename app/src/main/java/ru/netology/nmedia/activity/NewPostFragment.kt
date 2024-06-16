@@ -1,7 +1,5 @@
 package ru.netology.nmedia.activity
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +18,7 @@ class NewPostFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentNewPostBinding.inflate(inflater, container,false)
+        val binding = FragmentNewPostBinding.inflate(inflater, container, false)
         arguments?.textArg?.let(binding.edit::setText)
 
         val viewModel: PostViewModel by viewModels(
@@ -29,7 +27,6 @@ class NewPostFragment : Fragment() {
 
         binding.edit.requestFocus()
         binding.ok.setOnClickListener {
-            val intent = Intent()
             if (binding.edit.text.isNotBlank()) {
                 viewModel.changeContent(binding.edit.text.toString())
                 viewModel.save()
@@ -39,8 +36,7 @@ class NewPostFragment : Fragment() {
         return binding.root
     }
 
-    companion object{
+    companion object {
         var Bundle.textArg: String? by StringArg
-
     }
 }
