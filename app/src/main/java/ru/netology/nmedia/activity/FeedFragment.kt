@@ -17,18 +17,15 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class FeedFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentFeedBinding.inflate(inflater, container, false)
-
         val viewModel: PostViewModel by viewModels(
             ownerProducer = ::requireParentFragment
         )
-
         /*
         val adapter = PostsAdapter({
             viewModel.likeById(it.id)
@@ -43,10 +40,15 @@ class FeedFragment : Fragment() {
                 viewModel.likeById(post.id)
             }
 
+            override fun onVisibility(post: Post) {
+                viewModel.visibilityById(post.id)
+            }
+
             //override fun onShare(post: Post) {
             //    viewModel.shareById(post.id)
             //}
             override fun onShare(post: Post) {
+                viewModel.shareById(post.id)
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
                     putExtra(Intent.EXTRA_TEXT, post.content)
@@ -57,6 +59,7 @@ class FeedFragment : Fragment() {
                     Intent.createChooser(intent, getString(R.string.chooser_share_post))
                 startActivity(shareIntent)
             }
+
 
             //-- Video
             override fun onVideo(post: Post) {
@@ -167,7 +170,6 @@ class FeedFragment : Fragment() {
 
         return binding.root
     }
-
 }
 
 

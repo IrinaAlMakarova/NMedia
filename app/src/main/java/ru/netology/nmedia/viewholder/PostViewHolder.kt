@@ -34,6 +34,10 @@ class PostViewHolder(
                 onInteractionListener.onLike(post)
             }
 
+            ivVisibility.setOnClickListener {
+                onInteractionListener.onVisibility(post)
+            }
+
             ivShare.text = counter(post.share)
             ivShare.setOnClickListener {
                 onInteractionListener.onShare(post)

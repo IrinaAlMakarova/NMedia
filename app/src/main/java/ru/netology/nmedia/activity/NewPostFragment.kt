@@ -12,7 +12,6 @@ import ru.netology.nmedia.util.StringArg
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class NewPostFragment : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,7 +23,6 @@ class NewPostFragment : Fragment() {
         val viewModel: PostViewModel by viewModels(
             ownerProducer = ::requireParentFragment
         )
-
         binding.edit.requestFocus()
         binding.ok.setOnClickListener {
             if (binding.edit.text.isNotBlank()) {

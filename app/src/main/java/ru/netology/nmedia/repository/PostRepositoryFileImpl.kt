@@ -34,6 +34,27 @@ class PostRepositoryFileImpl(
 
     override fun getAll(): LiveData<List<Post>> = data
 
+    override fun save(post: Post) {
+        if (post.id == 0L) {
+            // TODO: remove hardcoded author & published
+            posts = listOf(
+                post.copy(
+                    id = nextId++,
+                    author = "Me",
+                    likedByMe = false,
+                    published = "now"
+                )
+            ) + posts
+            data.value = posts
+            return
+        }
+
+        posts = posts.map {
+            if (it.id != post.id) it else it.copy(content = post.content)
+        }
+        data.value = posts
+    }
+
     override fun likeById(id: Long) {
         posts = posts.map {
             if (it.id != id) it else it.copy(
@@ -69,26 +90,7 @@ class PostRepositoryFileImpl(
     }
 
     //private var nextId = (posts.size + 1).toLong()
-    override fun save(post: Post) {
-        if (post.id == 0L) {
-            // TODO: remove hardcoded author & published
-            posts = listOf(
-                post.copy(
-                    id = nextId++,
-                    author = "Me",
-                    likedByMe = false,
-                    published = "now"
-                )
-            ) + posts
-            data.value = posts
-            return
-        }
 
-        posts = posts.map {
-            if (it.id != post.id) it else it.copy(content = post.content)
-        }
-        data.value = posts
-    }
 
     private fun sync() {
         context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {

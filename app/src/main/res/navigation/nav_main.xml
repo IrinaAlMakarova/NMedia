@@ -26,5 +26,5 @@
         android:id="@+id/singlePostFragment"
         android:name="ru.netology.nmedia.activity.SinglePostFragment"
         android:label="SinglePostFragment"
-        tools:layout="@layout/fragment_single_post"/>
+        tools:layout="@layout/fragment_single_post" />
 </navigation>
