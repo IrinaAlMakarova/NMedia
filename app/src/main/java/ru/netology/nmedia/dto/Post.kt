@@ -5,10 +5,11 @@ data class Post(
     val author: String,
     val content: String,
     val published: String,
-    var likes: Int,
-    var likedByMe: Boolean = false,
-    var share: Int,
-    var shareByMe: Boolean = false,
-    var visibility: Int,
-    var visibilityByMe: Boolean = false
+    val likes: Int,
+    val likedByMe: Boolean,
+    val share: Int,
+    val shareByMe: Boolean,
+    val visibility: Int,
+    val visibilityByMe: Boolean,
+    val link: String? = null
 )
