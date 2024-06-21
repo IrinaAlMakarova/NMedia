@@ -1,4 +1,4 @@
-package ru.netology.nmedia.dao
+package ru.netology.nmedia.dao_sql
 
 import ru.netology.nmedia.dto.Post
 

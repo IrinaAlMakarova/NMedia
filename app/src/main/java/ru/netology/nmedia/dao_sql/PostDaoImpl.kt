@@ -1,4 +1,4 @@
-package ru.netology.nmedia.dao
+package ru.netology.nmedia.dao_sql
 
 import android.content.ContentValues
 import android.database.Cursor

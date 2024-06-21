@@ -3,12 +3,9 @@ package ru.netology.nmedia.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import ru.netology.nmedia.db.AppDb
+import ru.netology.nmedia.db_sql.AppDb
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.repository.PostRepository
-import ru.netology.nmedia.repository.PostRepositoryFileImpl
-import ru.netology.nmedia.repository.PostRepositoryInMemoryImpl
 import ru.netology.nmedia.repository.PostRepositorySQLiteImpl
 
 private val empty = Post(
