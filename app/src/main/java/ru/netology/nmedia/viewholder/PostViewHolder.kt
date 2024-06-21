@@ -93,6 +93,9 @@ class PostViewHolder(
                 groupVideo.visibility = View.VISIBLE
             }
 
+            root.setOnClickListener{
+                onInteractionListener.onOpen(post)
+            }
         }
     }
 }

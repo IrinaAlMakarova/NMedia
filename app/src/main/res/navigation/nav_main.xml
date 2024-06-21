@@ -14,7 +14,7 @@
             android:id="@+id/action_feedFragment_to_newPostFragment"
             app:destination="@id/newPostFragment" />
         <action
-            android:id="@+id/action_feedFragment_to_onePostFragment"
+            android:id="@+id/action_feedFragment_to_singlePostFragment"
             app:destination="@id/singlePostFragment" />
     </fragment>
     <fragment
@@ -26,5 +26,9 @@
         android:id="@+id/singlePostFragment"
         android:name="ru.netology.nmedia.activity.SinglePostFragment"
         android:label="SinglePostFragment"
-        tools:layout="@layout/fragment_single_post" />
+        tools:layout="@layout/fragment_single_post" >
+        <action
+            android:id="@+id/action_singlePostFragment_to_newPostFragment"
+            app:destination="@id/newPostFragment" />
+    </fragment>
 </navigation>
