@@ -70,6 +70,7 @@ dependencies {
     implementation "com.google.code.gson:gson:$gson_version"
 
 
+    //apply plugin: 'kotlin-android'
     apply plugin: 'kotlin-kapt'
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
