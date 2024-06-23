@@ -20,28 +20,34 @@ interface PostDao {
     fun save(post: PostEntity) =
         if (post.id == 0L) insert(post) else updateContentById(post.id, post.content)
 
-    @Query("""
+    @Query(
+        """
         UPDATE PostEntity SET
         likes = likes + CASE WHEN likedByMe THEN -1 ELSE 1 END,
         likedByMe = CASE WHEN likedByMe THEN 0 ELSE 1 END
         WHERE id = :id
-        """)
+        """
+    )
     fun likeById(id: Long)
 
-    @Query("""
+    @Query(
+        """
         UPDATE PostEntity SET
         share = share + 1,
         shareByMe = 1
         WHERE id = :id
-        """)
+        """
+    )
     fun shareById(id: Long)
 
-    @Query("""
+    @Query(
+        """
         UPDATE PostEntity SET
         visibility = visibility + 1,
         visibilityByMe = 1
         WHERE id = :id
-        """)
+        """
+    )
     fun visibilityById(id: Long)
 
     @Query("DELETE FROM PostEntity WHERE id = :id")

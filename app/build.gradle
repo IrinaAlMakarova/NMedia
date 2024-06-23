@@ -43,7 +43,7 @@ dependencies {
     def fragment_version = "1.7.1"
     def gson_version = "2.11.0"
     def room_version = "2.6.1"
-    
+
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material

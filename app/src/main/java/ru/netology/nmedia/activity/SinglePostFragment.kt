@@ -22,12 +22,13 @@ class SinglePostFragment : Fragment() {
     private val viewModel: PostViewModel by viewModels(
         ownerProducer = ::requireParentFragment
     )
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding=FragmentSinglePostBinding.inflate(inflater, container, false)
+        val binding = FragmentSinglePostBinding.inflate(inflater, container, false)
 
         val viewHolder = PostViewHolder(binding.post, object : OnInteractionListener {
             override fun onLike(post: Post) {
@@ -63,17 +64,17 @@ class SinglePostFragment : Fragment() {
             //-- Video
 
             //-- Edit (регистрация контракта)
-            val editPostLauncher =
-                registerForActivityResult(EditPostResultContract()) { result ->
-                    result ?: return@registerForActivityResult
-                    viewModel.changeContent(result)
-                    viewModel.save()
-                }
+            //val editPostLauncher =
+            //    registerForActivityResult(EditPostResultContract()) { result ->
+            //        result ?: return@registerForActivityResult
+            //        viewModel.changeContent(result)
+            //        viewModel.save()
+            //    }
             //-- Edit
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
-                editPostLauncher.launch(post.content)  //-- вызов функции launch к контракту
+                //    editPostLauncher.launch(post.content)  //-- вызов функции launch к контракту
             }
 
             //override fun onEdit(post: Post) {
@@ -86,13 +87,15 @@ class SinglePostFragment : Fragment() {
             }
         })
 
-        viewModel.edited.observe(viewLifecycleOwner){
-            if(it.id != 0L){
-                findNavController().navigate(R.id.action_singlePostFragment_to_newPostFragment, Bundle().apply { textArg=it.content })
+        viewModel.edited.observe(viewLifecycleOwner) {
+            if (it.id != 0L) {
+                findNavController().navigate(
+                    R.id.action_singlePostFragment_to_newPostFragment,
+                    Bundle().apply { textArg = it.content })
             }
         }
 
-        val  id = arguments?.textArg?.toLong()?: -1
+        val id = arguments?.textArg?.toLong() ?: -1
         viewModel.data.observe(viewLifecycleOwner) { posts ->
             val post = posts.find { it.id == id } ?: run {
                 findNavController().navigateUp()

@@ -9,5 +9,5 @@ interface OnInteractionListener {
     fun onEdit(post: Post) {}
     fun onRemove(post: Post) {}
     fun onVideo(post: Post) {}
-    fun onOpen(post: Post){}
+    fun onOpen(post: Post) {}
 }
