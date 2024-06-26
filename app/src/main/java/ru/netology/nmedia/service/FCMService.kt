@@ -43,6 +43,10 @@ class FCMService : FirebaseMessagingService() {
         }
     }
 
+    override fun onNewToken(token: String) {
+        println(token)
+    }
+
     private fun handleLike(content: Like) {
         val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.ic_notification)
@@ -55,6 +59,8 @@ class FCMService : FirebaseMessagingService() {
             )
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
+
+        notify(notification)
     }
 
     private fun notify(notification: Notification) {
@@ -68,9 +74,8 @@ class FCMService : FirebaseMessagingService() {
                 .notify(Random.nextInt(100_000), notification)
         }
     }
-
-
 }
+
 
 enum class Action {
     LIKE,
