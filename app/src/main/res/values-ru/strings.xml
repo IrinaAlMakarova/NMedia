@@ -2,4 +2,19 @@
 <resources>
     <string name="app_name">НМедиа</string>
     <string name="nmedia">НМедиа!</string>
+    <string name="post_text">Текст поста</string>
+    <string name="description_post_like">Нравится</string>
+    <string name="edit_text">Редактировать текст</string>
+    <string name="description_post_cansel">Отмена</string>
+    <string name="likes">1</string>
+    <string name="shares">2</string>
+    <string name="chooser_share_post" />
+    <string name="error_empty_content" />
+    <string name="add_post">Добавить пост</string>
+    <string name="video_link">Ссылка на видео</string>
+    <string name="channel_remote_name">Уведомления сервера</string>
+    <string name="channel_remote_description">Уведомления с удаленного сервера</string>
+    <string name="notification_user_liked">%1$s поставил лайк посту %2$s</string>
+    <string name="google_play_unavailable">Google Api Недоступно</string>
+    <string name="notification_user_post">%1$s опубликовал новый пост: %2$s</string>
 </resources>

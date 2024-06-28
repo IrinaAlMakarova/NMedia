@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="nmedia">NMedia!</string>
+    <string name="post_text">Post text</string>
+    <string name="description_post_like">Like</string>
+    <string name="edit_text">Edit Message</string>
+    <string name="description_post_cansel">Cansel</string>
+    <string name="likes">1</string>
+    <string name="shares">2</string>
+    <string name="chooser_share_post" />
+    <string name="error_empty_content" />
+    <string name="add_post">Add post</string>
+    <string name="video_link">Link to the video</string>
+    <string name="channel_remote_name">Server notifications</string>
+    <string name="channel_remote_description">Notifications from remote server</string>
+    <string name="notification_user_liked">User %1$s liked %2$s\'s post</string>
+    <string name="google_play_unavailable">Google Api Unavailable</string>
+    <string name="notification_user_post">%1$s posted a new post:\n %2$s</string>
 </resources>
