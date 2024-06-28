@@ -39,6 +39,7 @@ class FCMService : FirebaseMessagingService() {
         message.data[action]?.let {
             when (Action.valueOf(it)) {
                 Action.LIKE -> handleLike(gson.fromJson(message.data[content], Like::class.java))
+                Action.POST -> handlePost(gson.fromJson(message.data[content], Post::class.java))
             }
         }
     }
@@ -63,6 +64,22 @@ class FCMService : FirebaseMessagingService() {
         notify(notification)
     }
 
+    private fun handlePost(content: Post) {
+        val notification = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentTitle(
+                getString(
+                    R.string.notification_user_post,
+                    content.postAuthor,
+                    content.postContent,
+                )
+            )
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .build()
+
+        notify(notification)
+    }
+
     private fun notify(notification: Notification) {
         if (
             Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
@@ -75,16 +92,4 @@ class FCMService : FirebaseMessagingService() {
         }
     }
 }
-
-
-enum class Action {
-    LIKE,
-}
-
-data class Like(
-    val userId: Long,
-    val userName: String,
-    val postId: Long,
-    val postAuthor: String,
-)
 

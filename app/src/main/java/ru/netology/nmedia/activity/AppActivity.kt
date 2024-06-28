@@ -23,6 +23,8 @@ class AppActivity : AppCompatActivity() {
         val binding = ActivityAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        requestNotificationsPermission()
+
         intent?.let {
             if (it.action != Intent.ACTION_SEND) {
                 return@let
