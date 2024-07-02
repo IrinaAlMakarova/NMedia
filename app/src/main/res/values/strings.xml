@@ -16,4 +16,5 @@
     <string name="notification_user_liked">User %1$s liked %2$s\'s post</string>
     <string name="google_play_unavailable">Google Api Unavailable</string>
     <string name="notification_user_post">%1$s posted a new post:\n %2$s</string>
+    <string name="error_text">The application is not working correctly.</string>
 </resources>

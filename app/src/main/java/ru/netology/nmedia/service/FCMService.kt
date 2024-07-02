@@ -1,6 +1,7 @@
 package ru.netology.nmedia.service
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -35,12 +36,36 @@ class FCMService : FirebaseMessagingService() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onMessageReceived(message: RemoteMessage) {
-        message.data[action]?.let {
-            when (Action.valueOf(it)) {
-                Action.LIKE -> handleLike(gson.fromJson(message.data[content], Like::class.java))
-                Action.POST -> handlePost(gson.fromJson(message.data[content], Post::class.java))
+        try {
+            message.data[action]?.let {
+                when (Action.valueOf(it)) {
+                    Action.LIKE -> handleLike(
+                        gson.fromJson(
+                            message.data[content],
+                            Like::class.java
+                        )
+                    )
+                    Action.POST -> handlePost(
+                        gson.fromJson(
+                            message.data[content],
+                            Post::class.java
+                        )
+                    )
+                }
             }
+        } catch (e: Exception) {
+            val notification = NotificationCompat.Builder(this, channelId)
+                    .setSmallIcon(R.drawable.ic_notification)
+                    .setContentTitle(
+                        getString(
+                            R.string.error_text,
+                        )
+                    )
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .build()
+                notify(notification)
         }
     }
 
@@ -73,6 +98,10 @@ class FCMService : FirebaseMessagingService() {
                     content.postAuthor,
                     content.postContent,
                 )
+            )
+            .setStyle(
+                NotificationCompat.BigTextStyle() // Большой блок текста
+                    .bigText(content.postContent)
             )
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()

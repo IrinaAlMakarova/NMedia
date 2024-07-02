@@ -45,6 +45,5 @@ data class PostEntity(
                 dto.visibility,
                 dto.visibilityByMe
             )
-
     }
 }
