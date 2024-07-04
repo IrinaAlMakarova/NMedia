@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/card_post" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/toolsTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <!-- Создание поста с помощью EditText (EditText и кнопка cansel) !-->
+    <!--
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/post_text"
+        android:inputType="textMultiLine"
+        android:background="#FFF5EE"
+        android:padding="@dimen/common_spacing"
+        android:importantForAutofill="no"
+        app:layout_constraintTop_toBottomOf="@id/contentNotEdit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/save" />
+
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_post_like"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/content"
+        app:srcCompat="@drawable/check_circle_24dp" />
+        !-->
+    <!-- Создание поста с помощью EditText (EditText и кнопка cansel) !-->
+
+    <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
+    <!--
+    <TextView
+        android:id="@+id/contentNotEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_text"
+        android:background="#FDF5E6"
+        android:padding="@dimen/common_spacing"
+        android:importantForAutofill="no"
+        app:layout_constraintTop_toTopOf="@id/toolsTop"
+        app:layout_constraintBottom_toTopOf="@id/content"
+        app:layout_constraintEnd_toStartOf="@id/cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/contentNotEdit" />
+
+    <ImageButton
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_post_cansel"
+        app:srcCompat="@drawable/cancel_24dp"
+        app:layout_constraintBottom_toTopOf="@id/save"
+        app:layout_constraintTop_toTopOf="@id/contentNotEdit"
+        app:layout_constraintBottom_toBottomOf="@id/contentNotEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/contentNotEdit" />
+    !-->
+    <!-- Редактирование поста с помощью EditText (EditText и кнопка cansel) !-->
+
+    <!--
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupCansel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="cancel,contentNotEdit" />!-->
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:contentDescription="@string/add_post"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/add_circle_48dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
